@@ -1,0 +1,26 @@
+name: remindee_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  fluent_ui: ^4.4.0
+  hive:
+  hive_flutter:
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  hive_generator:
+  build_runner:
+
+flutter:
+  uses-material-design: true
