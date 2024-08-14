@@ -12,6 +12,7 @@ dependencies:
   fluent_ui: ^4.4.0
   hive:
   hive_flutter:
+  time_planner: ^0.1.2+1
 
 
 
