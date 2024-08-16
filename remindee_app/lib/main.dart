@@ -1,3 +1,4 @@
+import 'package:calendar_view/calendar_view.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/rendering.dart';
 import 'package:remindee_app/course.dart';
@@ -7,6 +8,8 @@ import 'package:remindee_app/pages/SettingsPage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'boxes.dart';
+
+DateTime get _now => DateTime.now();
 
 void main() async {
   // initialize hive
@@ -30,51 +33,65 @@ class _MainAppState extends State<MainApp> {
 // test variables
   int _currentPage = 0;
 
+  // initialize flutter notifications package
+  @override
+  void initState() {
+    super.initState();
+  }
+
+// sample task
+  List<CalendarEventData> _events = [
+    CalendarEventData(title: 'ECE 027', date: _now, description: '@Q-9310')
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return FluentApp(
-      theme: FluentThemeData(
-        accentColor: Colors.yellow,
-        brightness: Brightness.dark,
-      ),
-      home: NavigationView(
-        //* Title Bar
-        appBar: const NavigationAppBar(
-          title: Center(
-            child: Text(
-              'Remindee!',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-          ),
-          automaticallyImplyLeading: false,
+    return CalendarControllerProvider(
+      controller: EventController()..addAll(_events),
+      child: FluentApp(
+        theme: FluentThemeData(
+          accentColor: Colors.yellow,
+          brightness: Brightness.dark,
         ),
-
-        pane: NavigationPane(
-          displayMode: PaneDisplayMode.compact,
-          items: [
-            //* Home Page
-            PaneItem(
-              icon: const Icon(FluentIcons.home),
-              body: HomePage(),
-              title: const Text("Home"),
+        home: NavigationView(
+          //* Title Bar
+          appBar: const NavigationAppBar(
+            title: Center(
+              child: Text(
+                'Remindee!',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
             ),
+            automaticallyImplyLeading: false,
+          ),
 
-            //* Schedule
-            PaneItem(
-              icon: const Icon(FluentIcons.calendar_week),
-              body: Schedulepage(),
-              title: const Text("Schedule"),
-            ),
+          pane: NavigationPane(
+            displayMode: PaneDisplayMode.compact,
+            items: [
+              //* Home Page
+              PaneItem(
+                icon: const Icon(FluentIcons.home),
+                body: HomePage(),
+                title: const Text("Home"),
+              ),
 
-            //* Settings
-            PaneItem(
-              icon: const Icon(FluentIcons.settings),
-              body: SettingsPage(),
-              title: const Text("Settings"),
-            )
-          ],
-          selected: _currentPage,
-          onChanged: (index) => setState(() => _currentPage = index),
+              //* Schedule
+              PaneItem(
+                icon: const Icon(FluentIcons.calendar_week),
+                body: Schedulepage(),
+                title: const Text("Schedule"),
+              ),
+
+              //* Settings
+              PaneItem(
+                icon: const Icon(FluentIcons.settings),
+                body: SettingsPage(),
+                title: const Text("Settings"),
+              )
+            ],
+            selected: _currentPage,
+            onChanged: (index) => setState(() => _currentPage = index),
+          ),
         ),
       ),
     );

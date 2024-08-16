@@ -13,7 +13,8 @@ dependencies:
   hive:
   hive_flutter:
   time_planner: ^0.1.2+1
-
+  flutter_local_notifications: 
+  calendar_view: ^1.2.0
 
 
 dev_dependencies:
