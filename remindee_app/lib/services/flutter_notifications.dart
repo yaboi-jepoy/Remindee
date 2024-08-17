@@ -1,39 +1,23 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class LocalNotificationService {
-  static final FlutterLocalNotificationsPlugin notificationsPlugin =
+  // instance of the notif plugin
+  static final FlutterLocalNotificationsPlugin _notificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
-  Future<void> initNotification() async {
-    AndroidInitializationSettings androidInitializationSettings =
-        const AndroidInitializationSettings('chibiyanami'); //update for logo
+  // initialize function
+  static void initialize() {
+    // init for android
+    const InitializationSettings initializationSettingsAndroid =
+        InitializationSettings(
+            android: AndroidInitializationSettings("chibiyanami"));
 
-    var initializationSettingsIOS = DarwinInitializationSettings(
-      requestAlertPermission: true,
-      requestBadgePermission: true,
-      requestSoundPermission: true,
-      onDidReceiveLocalNotification:
-          (int id, String? title, String? body, String? payload) async {},
+    _notificationsPlugin.initialize(
+      initializationSettingsAndroid,
+      // for handling notif receive events
+      onDidReceiveNotificationResponse: (details) {
+        if (details.input != null) {}
+      },
     );
-
-    var initializationSettings = InitializationSettings(
-        android: androidInitializationSettings, iOS: initializationSettingsIOS);
-
-    await notificationsPlugin.initialize(initializationSettings,
-        onDidReceiveNotificationResponse:
-            (NotificationResponse notificationResponse) async {});
-  }
-
-  notificationDetails() {
-    return const NotificationDetails(
-        android: AndroidNotificationDetails('channelId', 'channelName',
-            importance: Importance.max),
-        iOS: DarwinNotificationDetails());
-  }
-
-  Future showNotification(
-      {int id = 0, String? title, String? body, String? payLoad}) async {
-    return notificationsPlugin.show(
-        id, title, body, await NotificationDetails());
   }
 }

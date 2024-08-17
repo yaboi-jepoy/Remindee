@@ -1,9 +1,7 @@
-import 'package:calendar_view/calendar_view.dart';
+import 'package:time_planner/time_planner.dart';
 import 'package:fluent_ui/fluent_ui.dart' as fluent;
 import 'package:flutter/material.dart';
 import 'package:remindee_app/constants.dart';
-
-DateTime get _now => DateTime.now();
 
 class Schedulepage extends StatefulWidget {
   const Schedulepage({super.key});
@@ -27,7 +25,20 @@ class _SchedulepageState extends State<Schedulepage> {
           children: [
             // other items
             //*CALENDAR GOES HERE */
-            WeekView(),
+            const TimePlanner(
+              startHour: 6,
+              endHour: 23,
+              setTimeOnAxis: true,
+              headers: [
+                TimePlannerTitle(title: "Sunday"),
+                TimePlannerTitle(title: "Monday"),
+                TimePlannerTitle(title: "Tuesday"),
+                TimePlannerTitle(title: "Wednesday"),
+                TimePlannerTitle(title: "Thursday"),
+                TimePlannerTitle(title: "Friday"),
+                TimePlannerTitle(title: "Saturday"),
+              ],
+            ),
 
             // the floating "add" button
             Positioned(
