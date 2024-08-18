@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "306267600552",
+    "project_id": "remindee-4298c",
+    "storage_bucket": "remindee-4298c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306267600552:android:0b00198a9aca403ae6349d",
+        "android_client_info": {
+          "package_name": "com.remindee.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIOTioraOnjgdLIOVN6J_QlaHMGwaOaUs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
