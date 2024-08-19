@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:306267600552:android:0b00198a9aca403ae6349d",
         "android_client_info": {
-          "package_name": "com.remindee.app"
+          "package_name": "com.example.remindee_app"
         }
       },
       "oauth_client": [],

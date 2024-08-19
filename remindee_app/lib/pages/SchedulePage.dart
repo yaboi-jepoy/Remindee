@@ -1,7 +1,9 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:time_planner/time_planner.dart';
 import 'package:fluent_ui/fluent_ui.dart' as fluent;
 import 'package:flutter/material.dart';
 import 'package:remindee_app/constants.dart';
+import 'package:remindee_app/services/awesome_notifications.dart';
 
 class Schedulepage extends StatefulWidget {
   const Schedulepage({super.key});
@@ -45,7 +47,14 @@ class _SchedulepageState extends State<Schedulepage> {
               bottom: btnAddBPos,
               right: btnAddRPos,
               child: FloatingActionButton(
-                onPressed: () {},
+                onPressed: () async {
+                  await NotificationService.showNotification(
+                    title: "hello kalibutan",
+                    body: "unsa man imong lawas",
+                    summary: "summary this",
+                    notificationLayout: NotificationLayout.Inbox,
+                  );
+                },
                 mini: true,
                 child: Icon(
                   fluent.FluentIcons.add,
