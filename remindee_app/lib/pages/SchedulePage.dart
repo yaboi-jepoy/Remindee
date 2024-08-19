@@ -47,13 +47,8 @@ class _SchedulepageState extends State<Schedulepage> {
               bottom: btnAddBPos,
               right: btnAddRPos,
               child: FloatingActionButton(
-                onPressed: () async {
-                  await NotificationService.showNotification(
-                    title: "hello kalibutan",
-                    body: "unsa man imong lawas",
-                    summary: "summary this",
-                    notificationLayout: NotificationLayout.Inbox,
-                  );
+                onPressed: () {
+                  displayNotification("", "", "");
                 },
                 mini: true,
                 child: Icon(
@@ -71,4 +66,15 @@ class _SchedulepageState extends State<Schedulepage> {
 }
 
 // functions related to schedule page
-void display_sample_notif() {}
+void displayNotification(
+  String courseCode,
+  String time,
+  String room,
+) async {
+  await NotificationService.showNotification(
+    title: courseCode,
+    body: "@ " + room + " (" + time + ") ",
+    summary: "next in 5 minutes",
+    notificationLayout: NotificationLayout.BigText,
+  );
+}
