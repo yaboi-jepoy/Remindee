@@ -20,8 +20,9 @@ void main() async {
 
   // initialize hive
   await Hive.initFlutter();
-  Hive.registerAdapter(CourseAdapter());
-  boxCourse = await Hive.openBox<Course>('courseBox'); // open a Hive Box
+
+  // open a box (database)
+  var storedScheds = await Hive.openBox('scheds');
 
   // initialize notifications plugin
   //!LocalNotificationService.initialize();
