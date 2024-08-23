@@ -1,28 +1,18 @@
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/rendering.dart';
-import 'package:remindee_app/course.dart';
 import 'package:remindee_app/pages/HomePage.dart';
 import 'package:remindee_app/pages/SchedulePage.dart';
 import 'package:remindee_app/pages/SettingsPage.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:remindee_app/services/awesome_notifications.dart';
 //! import 'package:firebase_core/firebase_core.dart';
 //! import 'firebase_options.dart';
 //! import 'package:firebase_messaging/firebase_messaging.dart';
-
-import 'boxes.dart';
 
 void main() async {
   // initialize permissions
   // WidgetsFlutterBinding.ensureInitialized();
   // await Permission.notification.request();
   await NotificationService.initializeNotification();
-
-  // initialize hive
-  await Hive.initFlutter();
-
-  // open a box (database)
-  var storedScheds = await Hive.openBox('scheds');
 
   // initialize notifications plugin
   //!LocalNotificationService.initialize();
