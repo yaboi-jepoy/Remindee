@@ -1,18 +1,8 @@
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:time_planner/time_planner.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart' as sf;
 
-Widget showTimePlanner() {
-  return const TimePlanner(
-    startHour: 6,
-    endHour: 23,
-    headers: [
-      TimePlannerTitle(title: 'Monday'),
-      TimePlannerTitle(title: 'Tuesday'),
-      TimePlannerTitle(title: 'Wednesday'),
-      TimePlannerTitle(title: 'Thursday'),
-      TimePlannerTitle(title: 'Friday'),
-      TimePlannerTitle(title: 'Saturday'),
-      TimePlannerTitle(title: 'Sunday'),
-    ],
+Widget showCalendar() {
+  return sf.SfCalendar(
+    view: sf.CalendarView.week,
   );
 }

@@ -1,6 +1,7 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:fluent_ui/fluent_ui.dart' as fluent;
 import 'package:flutter/material.dart';
+import 'package:flutter_timetable/flutter_timetable.dart';
 import 'package:remindee_app/constants.dart';
 import 'package:remindee_app/services/awesome_notifications.dart';
 import 'package:remindee_app/services/schedule_widget.dart';
@@ -27,7 +28,7 @@ class _SchedulepageState extends State<Schedulepage> {
           children: [
             // other items
             //*CALENDAR GOES HERE */
-            showTimePlanner(),
+            showCalendar(),
 
             // the floating "add" button
             Positioned(
